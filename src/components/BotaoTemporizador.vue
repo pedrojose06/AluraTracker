@@ -1,7 +1,7 @@
 <template>
 	<button
 		class="button"
-		:disabled="!cronometroRodando"
+		:disabled="cronometroRodando"
 	>
 		<span class="icon">
 			<i :class="icone"></i>
