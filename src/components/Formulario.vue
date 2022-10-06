@@ -29,6 +29,7 @@
 
 	export default defineComponent({
 		name: "FormularioVue",
+		emits: ['aoSalvarTarefa'],
 		components: {
 			TemporizadorVue,
 		},
@@ -39,8 +40,10 @@
 		},
 		methods: {
 			finalizarTarefa(tempoDecorrido: number): void {
-				console.log('Tempo decorrido: ', tempoDecorrido)
-				console.log('Descrição: ', this.descricao)
+				this.$emit('aoSalvarTarefa', {
+					duracaoSegundos: tempoDecorrido,
+					descricao: this.descricao,
+				})
 				this.descricao = ''
 			}
 		}

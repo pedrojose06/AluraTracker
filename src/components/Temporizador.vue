@@ -5,13 +5,13 @@
 			@click="iniciar"
 			nome="play"
 			icone="fas fa-play"
-            :cronometroRodando="cronometroRodando"
+			:cronometroRodando="cronometroRodando"
 		/>
 		<BotaoTemporizadorVue
 			@click="finalizar"
 			nome="stop"
 			icone="fas fa-stop"
-            :cronometroRodando="!cronometroRodando"
+			:cronometroRodando="!cronometroRodando"
 		/>
 	</div>
 </template>
