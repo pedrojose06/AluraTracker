@@ -11,6 +11,9 @@
 					:key="index"
 					:tarefa="tarefa"
 				/>
+			<BoxVue v-if="listaVazia">
+				<div> Você não está muito produtivo hoje ! :'( </div>
+			</BoxVue>
 			</div>
 		</div>
 	</main>
@@ -22,6 +25,7 @@
 	import FormularioVue from './components/Formulario.vue';
 	import TarefaVue from './components/Tarefa.vue';
 	import ITarefa from './Interfaces/ITarefa';
+	import BoxVue from './components/Box.vue';
 
 
 	export default defineComponent({
@@ -29,11 +33,17 @@
 		components: {
 			BarraLateralVue,
 			FormularioVue,
-			TarefaVue
+			TarefaVue,
+			BoxVue,
 		},
 		data() {
 			return {
 				tarefas: [] as ITarefa[]
+			}
+		},
+		computed:{
+			listaVazia() : boolean{
+				return this.tarefas.length === 0;
 			}
 		},
 		methods: {
