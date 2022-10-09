@@ -1,5 +1,5 @@
 <template>
-	<div class="box">
+	<div class="box formulario">
 		<div class="columns">
 			<div
 				class="column is-8"
@@ -49,3 +49,9 @@
 		}
 	})
 </script>
+<style>
+.formulario {
+	color:var(--texto-primario);
+	background: var(--bg-primario);
+}
+</style>
