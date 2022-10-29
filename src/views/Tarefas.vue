@@ -1,15 +1,15 @@
 <template>
-    <FormularioVue @aoSalvarTarefa="salvarTarefa" />
-    <div class="lista">
-    <BoxVue v-if="listaVazia">
-        <div> Você não está muito produtivo hoje ! :'( </div>
-    </BoxVue>
-        <TarefaVue
-            v-for="(tarefa, index) in tarefas"
-            :key="index"
-            :tarefa="tarefa"
-        />
-    </div>
+	<FormularioVue @aoSalvarTarefa="salvarTarefa" />
+	<div class="lista">
+		<BoxVue v-if="listaVazia">
+			<div> Você não está muito produtivo hoje ! :'( </div>
+		</BoxVue>
+		<TarefaVue
+			v-for="(tarefa, index) in tarefas"
+			:key="index"
+			:tarefa="tarefa"
+		/>
+	</div>
 </template>
 
 <script lang="ts">
@@ -37,8 +37,8 @@
 				this.tarefas.push(tarefa);
 			},
 		},
-		computed:{
-			listaVazia() : boolean{
+		computed: {
+			listaVazia(): boolean {
 				return this.tarefas.length === 0;
 			}
 		},
