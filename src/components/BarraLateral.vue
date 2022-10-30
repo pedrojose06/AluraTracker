@@ -21,6 +21,12 @@
 						Projetos
 					</router-link>
 				</li>
+				<li>
+					<router-link to="projetos2" class="link">
+						<i class="fas fa-project-diagram"></i>
+						Projetos 2
+					</router-link>
+				</li>
 			</ul>
 		</nav>
 	</header>

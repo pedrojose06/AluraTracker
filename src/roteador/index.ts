@@ -12,7 +12,7 @@ const rotas: RouteRecordRaw[] = [
         path: '/projetos',
         name:'Projetos',
         component: ProjetosVue
-    }
+    },
 ]
 
 const roteador = createRouter({
