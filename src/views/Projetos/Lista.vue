@@ -39,13 +39,19 @@
 <script lang="ts">
 	import { computed, defineComponent } from 'vue';
 	import { useStore } from '@/store';
-import { EXCLUIR_PROJETO } from '@/store/tipos-mutacoes';
+import { EXCLUIR_PROJETO, NOTIFICAR } from '@/store/tipos-mutacoes';
+import { TipoNotificacao } from '@/Interfaces/INotificacao';
 
 	export default defineComponent({
 		name: 'ListaVue',
 		methods: {
 			excluir(id: string){
-				this.store.commit(EXCLUIR_PROJETO, id)
+				this.store.commit(EXCLUIR_PROJETO, id),
+				this.store.commit(NOTIFICAR,  {
+					titulo: 'Poxa vida :(',
+					texto: 'Você excluiu um projeto da lista !',
+					tipo: TipoNotificacao.FALHA
+				});
 			}
 		},
 		setup(){

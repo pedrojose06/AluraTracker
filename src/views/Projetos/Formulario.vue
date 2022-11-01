@@ -30,7 +30,9 @@
 <script lang="ts">
 	import { defineComponent } from 'vue';
 	import { useStore } from '@/store';
-import { EDITA_PROJETO, ADICIONA_PROJETO } from '@/store/tipos-mutacoes';
+	import { EDITA_PROJETO, ADICIONA_PROJETO } from '@/store/tipos-mutacoes';
+	import { TipoNotificacao } from '@/Interfaces/INotificacao';
+	import {notificacaoMixin} from '../../mixins/notificar'
 
 	export default defineComponent({
 		name: 'FormularioVue',
@@ -39,6 +41,9 @@ import { EDITA_PROJETO, ADICIONA_PROJETO } from '@/store/tipos-mutacoes';
 				type: String
 			}
 		},
+		mixins: [
+				notificacaoMixin,
+		],
 		mounted(){
 			if(this.id){
 				const projeto = this.store.state.projetos.find(proj => proj.id == this.id)
@@ -61,9 +66,11 @@ import { EDITA_PROJETO, ADICIONA_PROJETO } from '@/store/tipos-mutacoes';
 				else {
 					this.store.commit(ADICIONA_PROJETO, this.nomeDoProjeto)
 				}
-				this.nomeDoProjeto = '',
+				this.nomeDoProjeto = '';
+				this.notifica(TipoNotificacao.SUCESSO, 'Excelente', 'Projeto adicionado a lista')
 				this.$router.push('/projetos')
-			}
+			},
+
 		},
 		setup() {
 			const store = useStore()
