@@ -2,14 +2,19 @@
   "projetos": [
     {
       "id": 1,
-      "nome": "Alura Tracker"
+      "duracaoSegundos": 120,
+      "descricao": "Configuração do ambiente 2",
+      "projeto": {
+        "id": 1,
+        "nome": "Alura Tracker"
+      }
     }
   ],
   "tarefas": [
     {
       "id": 1,
       "duracaoSegundos": 120,
-      "descricao": "Configuração do ambiente",
+      "descricao": "Configuração do ambiente 222",
       "projeto": {
         "id": 1,
         "nome": "Alura Tracker"

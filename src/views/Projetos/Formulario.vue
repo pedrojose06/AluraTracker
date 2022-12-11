@@ -4,7 +4,7 @@
 			<div class="field">
 				<label
 					for="nomedoProjeto"
-					class="labe"
+					class="label"
 				>
 					Nome do Projeto
 				</label>

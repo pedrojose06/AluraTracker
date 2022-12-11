@@ -1,6 +1,6 @@
 <template>
 	<BoxVue>
-		<div class="columns">
+		<div class="columns clicavel" @click="tarefaClicada">
 			<div class="column is-4">
 				{{tarefa.descricao || 'Tarefa sem descrição'}}
 			</div>
@@ -25,6 +25,7 @@
 
 	export default defineComponent({
 		name: 'TarefaVue',
+		emits: ['aoTarefaClicada'],
 		components: {
 			CronometroVue,
 			BoxVue
@@ -35,6 +36,11 @@
 				required: true,
 			}
 		},
+		methods:{
+			tarefaClicada() : void{
+				this.$emit('aoTarefaClicada', this.tarefa )
+			}
+		},
 		data() {
 			return {
 				tempoEmSegundos: 15
@@ -43,3 +49,8 @@
 
 	})
 </script>
+<style>
+.clicavel:hover{
+	cursor: pointer;
+}
+</style>

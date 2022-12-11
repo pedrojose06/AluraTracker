@@ -1,9 +1,9 @@
 import IProjeto from "@/Interfaces/IProjeto";
 import { createStore, Store, useStore as vuexUseStore } from "vuex";
 import { InjectionKey } from "vue";
-import { ADICIONA_PROJETO, ADICIONA_TAREFA, DEFINIR_PROJETOS, DEFINIR_TAREFAS, EDITA_PROJETO, EXCLUIR_PROJETO, NOTIFICAR } from "./tipos-mutacoes";
+import { ADICIONA_PROJETO, ADICIONA_TAREFA, ALTERA_TAREFA, DEFINIR_PROJETOS, DEFINIR_TAREFAS, EDITA_PROJETO, EXCLUIR_PROJETO, NOTIFICAR } from "./tipos-mutacoes";
 import { INotificacao  } from "@/Interfaces/INotificacao";
-import { OBTER_PROJETOS, CADASTRAR_PROJETO, ALTERAR_PROJETO, DELETAR_PROJETO, OBTER_TAREFAS, CADASTRAR_TAREFA } from "./tipos-acoes";
+import { OBTER_PROJETOS, CADASTRAR_PROJETO, ALTERAR_PROJETO, DELETAR_PROJETO, OBTER_TAREFAS, CADASTRAR_TAREFA, ALTERAR_TAREFA } from "./tipos-acoes";
 import http from '@/http'
 import ITarefa from "@/Interfaces/ITarefa";
 
@@ -36,6 +36,10 @@ export const store = createStore<Estado>({
             const index = state.projetos.findIndex(proj => proj.id == projeto.id)
             state.projetos[index] = projeto
         },
+        [ALTERA_TAREFA](state, tarefa: ITarefa) {
+            const index = state.tarefas.findIndex(tare => tare.id == tarefa.id)
+            state.tarefas[index] = tarefa
+        },
         [EXCLUIR_PROJETO](state, id: string) {
             state.projetos = state.projetos.filter(proj => proj.id != id)
         },
@@ -65,6 +69,10 @@ export const store = createStore<Estado>({
         },
         [ALTERAR_PROJETO] (contexto, projeto: IProjeto) {
             return http.put(`/projetos/${projeto.id}`, projeto)
+        },
+        [ALTERAR_TAREFA] ({ commit }, tarefa: ITarefa) {
+            return http.put(`/tarefas/${tarefa.id}`, tarefa)
+                .then(resposta => commit(ALTERA_TAREFA, resposta.data))
         },
         [DELETAR_PROJETO] (contexto, id: string) {
             return http.delete(`/projetos/${id}`)
