@@ -4,5 +4,25 @@
       "id": 1,
       "nome": "Alura Tracker"
     }
+  ],
+  "tarefas": [
+    {
+      "id": 1,
+      "duracaoSegundos": 120,
+      "descricao": "Configuração do ambiente",
+      "projeto": {
+        "id": 1,
+        "nome": "Alura Tracker"
+      }
+    },
+    {
+      "duracaoSegundos": 1,
+      "descricao": "dasd",
+      "projeto": {
+        "id": 1,
+        "nome": "Alura Tracker"
+      },
+      "id": 2
+    }
   ]
 }
