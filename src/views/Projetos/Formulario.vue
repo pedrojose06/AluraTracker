@@ -30,7 +30,7 @@
 <script lang="ts">
 	import { defineComponent } from 'vue';
 	import { useStore } from '@/store';
-	import { EDITA_PROJETO, ADICIONA_PROJETO } from '@/store/tipos-mutacoes';
+	import { CADASTRAR_PROJETO, ALTERAR_PROJETO } from '@/store/tipos-acoes';
 	import { TipoNotificacao } from '@/Interfaces/INotificacao'
 	import useNotificador from '@/hook/notificador'
 
@@ -55,18 +55,23 @@
 		methods: {
 			salvar() {
 				if (this.id){
-					this.store.commit(EDITA_PROJETO,  {
+					this.store.dispatch(ALTERAR_PROJETO,  {
 						id: this.id,
 						nome: this.nomeDoProjeto,
 					})
+					.then(() => this.lidarComsucesso())
 				}
 				else {
-					this.store.commit(ADICIONA_PROJETO, this.nomeDoProjeto)
+					this.store.dispatch(CADASTRAR_PROJETO, this.nomeDoProjeto)
+						.then(() => this.lidarComsucesso())
 				}
-				this.nomeDoProjeto = '';
-				this.notificar(TipoNotificacao.SUCESSO, 'Excelente', 'Projeto adicionado a lista')
-				this.$router.push('/projetos')
+
 			},
+			lidarComsucesso() {
+				this.nomeDoProjeto = '';
+							this.notificar(TipoNotificacao.SUCESSO, 'Excelente', 'Projeto adicionado a lista')
+							this.$router.push('/projetos')
+			}
 
 		},
 		setup() {
