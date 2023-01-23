@@ -3,86 +3,9 @@
     {
       "nome": "Alura Tracker",
       "id": 1
-    },
-    {
-      "id": 2,
-      "nome": "asdasdasd"
-    },
-    {
-      "nome": "aaa",
-      "id": 3
     }
   ],
   "tarefas": [
-    {
-      "duracaoSegundos": 0,
-      "descricao": "aaaa 1222aaaaaasss",
-      "projeto": {
-        "nome": "Alura Tracker",
-        "id": 1
-      },
-      "id": 1
-    },
-    {
-      "duracaoSegundos": 1,
-      "descricao": "aaaaaaddd",
-      "projeto": {
-        "nome": "Alura Tracker",
-        "id": 1
-      },
-      "id": 2
-    },
-    {
-      "id": 3,
-      "descricao": "aaaa"
-    },
-    {
-      "id": 4,
-      "descricao": "aaaa"
-    },
-    {
-      "id": 5,
-      "descricao": "sssss"
-    },
-    {
-      "id": 6,
-      "descricao": "sssss"
-    },
-    {
-      "duracaoSegundos": 2,
-      "descricao": "aaa1111aaa",
-      "projeto": {
-        "id": 2,
-        "nome": "asdasdasd"
-      },
-      "id": 7
-    },
-    {
-      "duracaoSegundos": 1,
-      "descricao": "aaaaa",
-      "projeto": {
-        "id": 2,
-        "nome": "asdasdasd"
-      },
-      "id": 8
-    },
-    {
-      "duracaoSegundos": 2,
-      "descricao": "",
-      "projeto": {
-        "id": 2,
-        "nome": "asdasdasd"
-      },
-      "id": 9
-    },
-    {
-      "duracaoSegundos": 3,
-      "descricao": "aaaawwww",
-      "projeto": {
-        "nome": "Alura Tracker",
-        "id": 1
-      },
-      "id": 10
-    }
+
   ]
 }
