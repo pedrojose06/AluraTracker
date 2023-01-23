@@ -24,6 +24,11 @@ npm run test:unit
 ```
 npm run lint
 ```
+### Run json-server db.json
+```
+npm install -g json-server
+json-server db.json
+```
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).

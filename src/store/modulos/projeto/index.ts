@@ -49,8 +49,5 @@ export const projeto: Module<EstadoProjeto, Estado> = {
                 .then(() => this.commit(EXCLUIR_PROJETO, id)
                 )
         },
-
     },
-
-
 }

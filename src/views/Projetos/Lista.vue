@@ -43,6 +43,7 @@
 	import { NOTIFICAR } from '@/store/tipos-mutacoes';
 	import { DELETAR_PROJETO } from '@/store/tipos-acoes';
 	import { OBTER_PROJETOS } from '@/store/tipos-acoes';
+	import { OBTER_TAREFAS } from '@/store/tipos-acoes';
 
 	export default defineComponent({
 		name: 'ListaVue',
@@ -62,6 +63,7 @@
 		setup(){
 			const store = useStore()
 			store.dispatch(OBTER_PROJETOS)
+			store.dispatch(OBTER_TAREFAS)
 			return {
 				projetos: computed(() => store.state.projeto.projetos),
 				store
